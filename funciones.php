@@ -25,7 +25,7 @@
 		</li>
 		
 		<li class='nav-item col-md-2'>
-		<a class='nav-link' href='registro.php'>Login</a>
+		<a class='nav-link' href='login.php'>Login</a>
 		</li>
 		<li class='nav-item col-md-3'>
 		<a class='nav-link' href='salir.php'>Cerrar Sesion</a>
@@ -42,7 +42,7 @@
 	function sectionInicio(){
 		echo "<section class='container'>
 				<article class='row'>
-				<div class='col-md-12'>";
+				<div class='col-md-12 row'>";
 	}
 	function sectionFin(){
 		echo "</div></article>";
