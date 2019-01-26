@@ -37,6 +37,7 @@ while ($fila = $consultar->fetch_assoc()) {
 		echo "<h4 class='card-title'>Precio :".$fila["pvp"]."€</h4>
 			<h4 class='card-title'>Stock :".$fila["stock"]."</h4>
 			<input type='submit' class='btn btn-primary' name='comprar' value='Comprar'>
+			<input type='hidden' name='cod' value='".$fila["cod"]."'>
 			<input type='hidden' name='producto' value='".$fila["nombre"]."'>
 			<input type='hidden' name='precio' value='".$fila["pvp"]."'>";
 	}

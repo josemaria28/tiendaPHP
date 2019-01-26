@@ -59,4 +59,36 @@
 	function formatearTablaUTF($conexion){
 		return mysqli_set_charset($conexion,"utf8");
 	}
+
+	function mostrar(){
+
+		$cabecera='<table border="1" align="center" width="40%"><caption>Estado de su cesta</caption>';
+		$cabecera.= '<tr><th>Articulo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
+		echo $cabecera;
+		$suma=0;
+
+		foreach ($_SESSION["producto"] as $indice=>$valor){
+			$cadena= "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
+			$cadena.="</td><td>".$_SESSION["precio"][$indice]."</td><td>";
+			$cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."</td>";
+			$cadena.="<td align=center><a href=comprarProductoYModificar.php?borrar=".$valor."><img src='imagenes/papelera.png' heigth='30' width='20'></a></td></tr>";
+			echo $cadena;
+			$suma=$suma+$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice];
+		}
+		echo"<tfoot>
+		    <tr>
+		      <td colspan=3 align='center'>Suma</td>
+		      <td>".$suma."</td>
+		    </tr>
+		  </tfoot>
+		</table>";
+
+		echo "<table id='enlaces'align='center'><tr><td>";
+		echo "<a href='articulos.php'>Seguir Comprando</a>";
+		echo "</td><td>";
+		echo "<a href='anular.php'>Anular Compra</a>";
+		echo "</td><td>";
+		echo "<a href='confirmar.php'>Confirmar Pedido</a>";
+		echo "</td></tr></table>";
+}
  ?>
