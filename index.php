@@ -19,8 +19,6 @@
 			menu();
 			sectionInicio();
 
-
-
 			if ($_SESSION["Usuario"] != "Invitado" && $_SESSION["Usuario"] != "admin") {
 						echo "<h1 class='display-1'>¡Bienvenido!</h1>";
 						echo "<br><br>

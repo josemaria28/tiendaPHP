@@ -23,18 +23,19 @@
 		<li class='nav-item col-md-3'>
 		<a class='nav-link' href='articulos.php'>Articulos</a>
 		</li>
-		<li class='nav-item col-md-2'>
-		<a class='nav-link' href='carro.php'>Carro</a>
-		</li>
+		
 		<li class='nav-item col-md-2'>
 		<a class='nav-link' href='registro.php'>Login</a>
 		</li>
 		<li class='nav-item col-md-3'>
-		<a class='nav-link' href='deslogear.php'>Cerrar Sesion</a>
+		<a class='nav-link' href='salir.php'>Cerrar Sesion</a>
 		</li>
 		</ul>	
 		</nav>
 		";
+		// <li class='nav-item col-md-2'>
+		// <a class='nav-link' href='carro.php'>Carro</a>
+		// </li>
 		
 	}
 	// Seccion/Contenido
