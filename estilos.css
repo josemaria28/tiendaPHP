@@ -1,0 +1,28 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+nav{
+	background-color: black;
+	font-weight: bold;
+	font-family: 'Crimson Text', serif;
+}
+nav>ul>li>a{
+	color: #d8d8d8;
+	font-size: 18px;
+	text-align: center;
+}
+article{
+	padding-top: 10%;
+}
+.menu{
+	color: white;
+	background-color: black;
+}
+.obligatorio{
+	color: red;
+}
+section{
+	margin-top: 3%;
+}
+
