@@ -25,9 +25,12 @@
 				$sql = "SELECT cod,pvp,stock,foto,descripcion FROM producto WHERE cod ='".$_GET["modificar"]."'";
 				formatearTablaUTF($conexion);
 				$consultar = $conexion -> query($sql);
+				echo "<pre>";
+			print_r($_GET);
+			echo "</pre>";
 
 				// echo "<form action='modificarArticulo.php' method='GET' enctype='multipart/form-data'>";
-				echo "<form action='#' method='GET' enctype='multipart/form-data'>";
+				echo "<form action='' method='GET' enctype='multipart/form-data'>";
 				while ($fila = $consultar->fetch_assoc()) {
 					echo "<h1 class='display-1'>Producto : ".$fila["cod"]."</h1>
 						<input type='hidden' name='cod' value='".$fila["cod"]."'>
@@ -66,6 +69,7 @@
 			
 			// Comprar Producto
 			if (isset($_GET["comprar"])) {
+				
 				/*echo "<pre>";
 				print_r($_GET);
 				echo "</pre>";*/
@@ -109,7 +113,9 @@
 					header('Location: articulos.php');
 					echo "Cesta vacía...<a href=index.php>Volver</a>";
 				}
-
+				echo "<pre>";
+print_r($_SESSION['producto']);
+echo "</pre>";
 
 
 

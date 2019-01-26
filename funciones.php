@@ -86,7 +86,7 @@
 		echo "<table id='enlaces'align='center'><tr><td>";
 		echo "<a href='articulos.php'>Seguir Comprando</a>";
 		echo "</td><td>";
-		echo "<a href='anular.php'>Anular Compra</a>";
+		echo "<a href='anularCompra.php'>Anular Compra</a>";
 		echo "</td><td>";
 		echo "<a href='confirmar.php'>Confirmar Pedido</a>";
 		echo "</td></tr></table>";
