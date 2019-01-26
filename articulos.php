@@ -24,18 +24,19 @@ echo "
 while ($fila = $consultar->fetch_assoc()) {
 	
 	// Listar los articulos
-	echo "<form action='comprarProductoC.php' method='GET' class='col-md-3'>
+	echo "<form action='comprarProductoYModificar.php' method='GET' class='col-md-3'>
 	<div class='card' style='width:200px'>
 	<img class='card-img-top' src='imagenes/AMD-1900X.jpg ".$fila['foto']."' style='width:100%' title='".$fila["cod"]."'>
 	<div class='card-body'>
 	<h4 class='card-title'>".$fila["nombre"]."</h4>
-	<h4 class='card-title'>Precio :".$fila["pvp"]."€</h4>
-	<h4 class='card-title'>Stock :".$fila["stock"]."</h4>";
+	";
 
 	
 	if ($_SESSION["Tipo"] != "Invitado" && $_SESSION["Tipo"] != "admin") {
 		// Listar todos articulos y poder comprar
-		echo "<input type='submit' class='btn btn-primary' name='comprar' value='Comprar'>
+		echo "<h4 class='card-title'>Precio :".$fila["pvp"]."€</h4>
+			<h4 class='card-title'>Stock :".$fila["stock"]."</h4>
+			<input type='submit' class='btn btn-primary' name='comprar' value='Comprar'>
 			<input type='hidden' name='producto' value='".$fila["nombre"]."'>
 			<input type='hidden' name='precio' value='".$fila["pvp"]."'>";
 	}
