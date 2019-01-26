@@ -1,10 +1,10 @@
 <?php 
 	session_cache_limiter();
-	session_name("Usuario");
+	session_name("Tipo");
 	session_start();
 	include("funciones.php");
 
-	if (!isset($_SESSION["Usuario"])) {
+	if (!isset($_SESSION["Tipo"])) {
 		$_SESSION["Usuario"] = "Invitado";
 	}
 
@@ -19,7 +19,7 @@
 			menu();
 			sectionInicio();
 
-			echo "<div class='col-md-6'>
+			echo "<div class='row'><div class='col-md-6'>
 			<form action='acceder.php' method='POST'>
 				<h1>Acceder :</h1>
 				<div class='form-group'>
@@ -60,7 +60,7 @@
 				<input type='submit' class='btn btn-primary' name='aceptarRegistro' value='Registrar'>
 				<input type='reset' class='btn btn-danger' name='cancelarRegistro' value='Cancelar'>
 			</form>
-		</div>";
+		</div></div>";
 
 			sectionFin();
 			

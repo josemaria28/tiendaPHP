@@ -42,7 +42,7 @@
 	function sectionInicio(){
 		echo "<section class='container'>
 				<article class='row'>
-				<div class='col-md-12 row'>";
+				<div class='col-md-12'>";
 	}
 	function sectionFin(){
 		echo "</div></article>";
