@@ -1,4 +1,4 @@
-<title>Mis datos</title>
+<title>Mis Datos</title>
 <?php 
 
 session_cache_limiter();

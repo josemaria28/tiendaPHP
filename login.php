@@ -1,3 +1,4 @@
+<title>Login</title>
 <?php 
 	session_cache_limiter();
 	session_name("Tipo");
