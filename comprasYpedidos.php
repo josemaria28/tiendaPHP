@@ -20,7 +20,9 @@
 			formatearTablaUTF($conexion);
 			$consultar = $conexion -> query($sql);
 
-			
+			while ($fila = $consultar->fetch_assoc()) {
+				
+			}
 
 			sectionFin();
 			
