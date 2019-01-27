@@ -14,10 +14,6 @@
 			menu();
 			sectionInicio();
 
-			/*echo "<pre>";
-			print_r($_POST);
-			echo "</pre>";*/
-
 			if (isset($_POST["cod"])) {
 				$foto = $_FILES["foto"]["name"];
 				$ruta = $_FILES["foto"]["tmp_name"];
