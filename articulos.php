@@ -25,7 +25,7 @@ while ($fila = $consultar->fetch_assoc()) {
 	
 	// Listar los articulos
 	echo "<form action='comprarProductoYModificar.php' method='GET' class='col-md-3'>
-	<div class='card' style='width:200px'>
+	<div class='card' style='width:100%'>
 	<img class='card-img-top' src='".$fila['foto']."' style='width:100%' title='".$fila["cod"]."'>
 	<div class='card-body'>
 	<h4 class='card-title'>".$fila["nombre"]."</h4>

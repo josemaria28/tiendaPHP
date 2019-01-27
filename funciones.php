@@ -16,14 +16,16 @@
 	function menu(){
 		echo "
 		<nav class='navbar navbar-expand-sm navbar-dark fixed-top row'>
-		<a class='col-md-6 navbar-brand' href='index.php'>
+		<a class='col-md-4 navbar-brand' href='index.php'>
 		<img src='imagenes/front-store.png' alt='logo' style='width:40px;'>
 		</a>
 		<ul class='navbar-nav col-md-6 row'>
 		<li class='nav-item col-md-3'>
 		<a class='nav-link' href='articulos.php'>Articulos</a>
 		</li>
-		
+		<li class='nav-item col-md-3'>
+		<a class='nav-link' href='carrito.php'>Carro</a>
+		</li>
 		<li class='nav-item col-md-2'>
 		<a class='nav-link' href='login.php'>Login</a>
 		</li>

@@ -49,55 +49,53 @@
 				}
 				echo "</form>";
 			}else{
-				
-			}
-			
-			// Comprar Producto
-			/*if (isset($_GET["comprar"])) {
-				
-				echo "<pre>";
-				print_r($_GET);
-				echo "</pre>";
-				echo "<pre><hr>";
-				print_r($_SESSION);
-				echo "</pre>";
+				// Comprar Producto
+				if (isset($_GET["comprar"])) {
+					
+					/*echo "<pre>";
+					print_r($_GET);
+					echo "</pre>";
+					echo "<pre><hr>";
+					print_r($_SESSION);
+					echo "</pre>";*/
 
 
-				if (!isset($_GET['borrar'])){
-					if (isset($_SESSION['producto'])){
-						//no es el primer producto en la cesta
-						//Compruebo si el producto estaba ya en la cesta
-						if (in_array($_GET["producto"],$_SESSION["producto"])){
-							$posicion=array_search($_GET["producto"],$_SESSION["producto"]);
-							$_SESSION["unidades"][$posicion]++;
-						}else{					
-							//si el producto no estaba ya en la cesta
-							$indice=$_SESSION["contador"];
-							$_SESSION["contador"]++;
-							$_SESSION["producto"][$indice]=$_GET["producto"];
-							$_SESSION["precio"][$indice]=$_GET["precio"];
-							$_SESSION["unidades"][$indice]=1;
-							}
-					}else{
-						$_SESSION["contador"]=1;
-						$_SESSION["producto"][0]=$_GET["producto"];
-						$_SESSION["unidades"][0]=1;
-						$_SESSION["precio"][0]=$_GET["precio"];
+					if (!isset($_GET['borrar'])){
+						if (isset($_SESSION['producto'])){
+							//no es el primer producto en la cesta
+							//Compruebo si el producto estaba ya en la cesta
+							if (in_array($_GET["producto"],$_SESSION["producto"])){
+								$posicion=array_search($_GET["producto"],$_SESSION["producto"]);
+								$_SESSION["unidades"][$posicion]++;
+							}else{					
+								//si el producto no estaba ya en la cesta
+								$indice=$_SESSION["contador"];
+								$_SESSION["contador"]++;
+								$_SESSION["producto"][$indice]=$_GET["producto"];
+								$_SESSION["precio"][$indice]=$_GET["precio"];
+								$_SESSION["unidades"][$indice]=1;
+								}
+						}else{
+							$_SESSION["contador"]=1;
+							$_SESSION["producto"][0]=$_GET["producto"];
+							$_SESSION["unidades"][0]=1;
+							$_SESSION["precio"][0]=$_GET["precio"];
+						}
+						}else{
+							$borrarindice=array_search($_GET["borrar"],$_SESSION["producto"]);
+							unset($_SESSION["producto"][$borrarindice]);
+							unset($_SESSION["unidades"][$borrarindice]);
+							unset($_SESSION["precio"][$borrarindice]);
+							$_SESSION["contador"]--;
 					}
-					}else{
-						$borrarindice=array_search($_GET["borrar"],$_SESSION["producto"]);
-						unset($_SESSION["producto"][$borrarindice]);
-						unset($_SESSION["unidades"][$borrarindice]);
-						unset($_SESSION["precio"][$borrarindice]);
-						$_SESSION["contador"]--;
-				}
 
-				if ($_SESSION["contador"]>0){
-					mostrar();
-				}else{
-					echo "Cesta vacía...<a href=articulos.php>Volver</a>";
+					if ($_SESSION["contador"]>0){
+						mostrar();
+					}else{
+						echo "Cesta vacía...<a href=articulos.php>Volver</a>";
+					}
 				}
-			}*/
+			}
 
 			sectionFin();
 			
