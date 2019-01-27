@@ -1,6 +1,5 @@
 <?php 
 	session_cache_limiter();
-	session_name("Tipo");
 	session_start();
 	include("funciones.php");
 
@@ -25,12 +24,8 @@
 				$sql = "SELECT cod,pvp,stock,foto,descripcion FROM producto WHERE cod ='".$_GET["modificar"]."'";
 				formatearTablaUTF($conexion);
 				$consultar = $conexion -> query($sql);
-				echo "<pre>";
-			print_r($_GET);
-			echo "</pre>";
 
-				// echo "<form action='modificarArticulo.php' method='GET' enctype='multipart/form-data'>";
-				echo "<form action='' method='GET' enctype='multipart/form-data'>";
+				echo "<form action='comprarArticulo.php' method='POST' enctype='multipart/form-data'>";
 				while ($fila = $consultar->fetch_assoc()) {
 					echo "<h1 class='display-1'>Producto : ".$fila["cod"]."</h1>
 						<input type='hidden' name='cod' value='".$fila["cod"]."'>
@@ -53,29 +48,19 @@
 					<input type='submit' class='btn btn-outline-dark col-md-10' name='aceptar' value='Aceptar'>";
 				}
 				echo "</form>";
-			// }else{
-				if (isset($_GET["cod"])) {
-					// No hace nada
-					$foto = $_FILES["foto"]["name"];
-					$ruta = $_FILES["foto"]["tmp_name"];
-					$destino = "imagenes/".$foto;
-					copy($ruta, $destino); 
-
-					$conexion = conectar("localhost","root","","bd_hardware");
-					$sql = "UPDATE producto SET Descripcion='".$_GET["descripcion"]."',PVP='".$_GET["precio"]."',Stock='".$_GET["stock"]."',foto='".$destino."' WHERE COD='".$_GET["cod"]."'";
-					$consultar = $conexion -> query($sql);
-				}
+			}else{
+				
 			}
 			
 			// Comprar Producto
-			if (isset($_GET["comprar"])) {
+			/*if (isset($_GET["comprar"])) {
 				
-				/*echo "<pre>";
+				echo "<pre>";
 				print_r($_GET);
-				echo "</pre>";*/
-				/*echo "<pre><hr>";
+				echo "</pre>";
+				echo "<pre><hr>";
 				print_r($_SESSION);
-				echo "</pre>";*/
+				echo "</pre>";
 
 
 				if (!isset($_GET['borrar'])){
@@ -110,16 +95,9 @@
 				if ($_SESSION["contador"]>0){
 					mostrar();
 				}else{
-					header('Location: articulos.php');
-					echo "Cesta vacía...<a href=index.php>Volver</a>";
+					echo "Cesta vacía...<a href=articulos.php>Volver</a>";
 				}
-				echo "<pre>";
-print_r($_SESSION['producto']);
-echo "</pre>";
-
-
-
-			}
+			}*/
 
 			sectionFin();
 			

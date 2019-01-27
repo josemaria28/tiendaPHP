@@ -62,7 +62,7 @@
 
 	function mostrar(){
 
-		$cabecera='<table border="1" align="center" width="40%"><caption>Estado de su cesta</caption>';
+		$cabecera='<table class="table table-condensed"';
 		$cabecera.= '<tr><th>Articulo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
 		echo $cabecera;
 		$suma=0;
@@ -77,18 +77,18 @@
 		}
 		echo"<tfoot>
 		    <tr>
-		      <td colspan=3 align='center'>Suma</td>
+		      <td colspan=3 align='center'>Total :</td>
 		      <td>".$suma."</td>
 		    </tr>
 		  </tfoot>
 		</table>";
 
 		echo "<table id='enlaces'align='center'><tr><td>";
-		echo "<a href='articulos.php'>Seguir Comprando</a>";
+		echo "<a href='articulos.php' class='btn btn-primary'>Seguir Comprando</a>";
 		echo "</td><td>";
-		echo "<a href='anularCompra.php'>Anular Compra</a>";
+		echo "<a href='anularCompra.php' class='btn btn-danger'>Anular Compra</a>";
 		echo "</td><td>";
-		echo "<a href='confirmar.php'>Confirmar Pedido</a>";
+		echo "<a href='confirmar.php' class='btn btn-success'>Confirmar Pedido</a>";
 		echo "</td></tr></table>";
 }
  ?>
