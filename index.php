@@ -22,7 +22,6 @@
 			<body>";
 			menu();
 			sectionInicio();
-			echo "Tipos : ".$_SESSION["Usuario"];
 
 			if ($_SESSION["Tipo"] != "Invitado" && $_SESSION["Tipo"] != "admin") {
 						echo "<h1 class='display-1'>¡Bienvenido!</h1>";
@@ -42,7 +41,7 @@
 
 						<ul class='list-group'>
 						<li class='list-group-item menu'>Gestionar:</li>
-						<li class='list-group-item'><a href='usuarios.php'>Usuarios</a></li>
+						<li class='list-group-item'><a href='usuarios.php'>Ver Usuarios</a></li>
 						<li class='list-group-item'><a href='articulos.php'>Articulos</a></li>
 						</ul>
 
