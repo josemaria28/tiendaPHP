@@ -7,21 +7,9 @@ include("funciones.php");
 	headi();
 	menu();
 
-	/*echo "Tipos : ".$_SESSION["Tipo"];
-
-	echo "<pre>";
-	print_r($_POST);
-	echo "</pre>";*/
-
 	$usuario = $_POST["usuario"];
 	$contraseña = $_POST["password"];
-	/*$inicio = "<section class='container'>
-		<article class='row'>
-			<div class='col-md-12'>";
-	$fin = "</div>
-		</article>";*/
-	// Si el usuario no existe "Debe registrarse"
-	// Si no esta "Bienvenido - ***"
+
 	$error = "<h1 class='display-1'>El usuario no existe...</h1><br><br>
 		<p class='display-4'><mark>Registrese para poder comprar.
 		¡Gracias!</mark></p>";
@@ -44,7 +32,7 @@ include("funciones.php");
 		echo $inicio.$error.$fin;
 	}
 
-	//echo "Tipos : ".$_SESSION["Tipo"];
+// echo "Tipos : ".$_SESSION["Tipo"];
 
 	if ($usuario == "admin" && $contraseña == "admin") {
 		echo $inicio."

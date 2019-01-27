@@ -1,5 +1,6 @@
 <?php 
 	session_cache_limiter();
+	session_name("Tipo");
 	session_start();
 	include("funciones.php");
 

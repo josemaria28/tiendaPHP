@@ -1,5 +1,6 @@
 <?php
 session_cache_limiter();
+session_name("Tipo");
 //session_name('producto');
 session_start();
 unset($_SESSION['producto']);

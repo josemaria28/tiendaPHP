@@ -1,5 +1,6 @@
 <?php 
 	session_cache_limiter();
+	session_name("Tipo");
 	session_start();
 	include("funciones.php");
 
@@ -15,9 +16,11 @@
 			sectionInicio();
 
 			$conexion = conectar("localhost","root","","bd_hardware");
-			$sql = "";
+			$sql = "SELECT clientes.nombre,nombre_corto,pvp from clientes INNER JOIN pedidos on pedidos.DNI=clientes.DNI INNER JOIN lineas ON pedidos.Num_Pedido=lineas.Num_Pedido INNER JOIN producto ON producto.COD=lineas.Producto WHERE clientes.nombre='".$_SESSION["Usuario"]."'";
 			formatearTablaUTF($conexion);
 			$consultar = $conexion -> query($sql);
+
+			
 
 			sectionFin();
 			

@@ -22,6 +22,7 @@
 			<body>";
 			menu();
 			sectionInicio();
+			echo "Tipos : ".$_SESSION["Usuario"];
 
 			if ($_SESSION["Tipo"] != "Invitado" && $_SESSION["Tipo"] != "admin") {
 						echo "<h1 class='display-1'>¡Bienvenido!</h1>";
