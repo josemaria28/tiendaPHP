@@ -15,13 +15,13 @@
 			menu();
 			sectionInicio();
 
-			echo "<pre>";
-			print_r($_GET);
-			echo "</pre><hr>";
+			// echo "<pre>";
+			// print_r($_GET);
+			// echo "</pre><hr>";
 
-			echo "<pre>";
-			print_r($_SESSION);
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r($_SESSION);
+			// echo "</pre>";
 
 			$foto = $_FILES["foto"]["name"];
 			$ruta = $_FILES["foto"]["tmp_name"];

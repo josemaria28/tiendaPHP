@@ -15,10 +15,6 @@
 			menu();
 			sectionInicio();
 			$conexion = conectar("localhost","root","","bd_hardware");
-			
-			/*echo "<pre>";
-			print_r($_GET);
-			echo "</pre>";*/
 
 			// Modificar Imagen
 			if (isset($_GET["modificar"])) {
@@ -51,17 +47,17 @@
 				echo "</form>";
 			}else{
 				// Comprar Producto
-				/*if (isset($_GET["comprar"])) {
-					if (!isset($_SESSION["cesta"])) {
-						$_SESSION["cesta"] = "nada";
-				}*/
+				if (isset($_GET["comprar"])) {
 					
-					echo "<pre>";
+					/*echo "<pre>";
 					print_r($_GET);
 					echo "</pre>";
 					echo "<pre><hr>";
 					print_r($_SESSION);
 					echo "</pre>";
+					echo "<pre>";
+					print_r($_SESSION['producto']);
+					echo "</pre>";*/
 
 
 					if (!isset($_GET['borrar'])){
@@ -91,6 +87,7 @@
 							unset($_SESSION["unidades"][$borrarindice]);
 							unset($_SESSION["precio"][$borrarindice]);
 							$_SESSION["contador"]--;
+
 					}
 
 					if ($_SESSION["contador"]>0){

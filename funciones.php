@@ -63,13 +63,14 @@
 	}
 
 	function mostrar(){
-
+		if (isset($_SESSION["producto"])){
 		$cabecera='<table class="table table-condensed"';
 		$cabecera.= '<tr><th>Articulo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
 		echo $cabecera;
 		$suma=0;
 
 		foreach ($_SESSION["producto"] as $indice=>$valor){
+			// echo $valor;
 			$cadena= "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
 			$cadena.="</td><td>".$_SESSION["precio"][$indice]."€</td><td>";
 			$cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."€</td>";
@@ -87,6 +88,11 @@
 
 		echo "<a href='articulos.php' class='btn btn-primary col-md-4'>Seguir Comprando</a>";
 		echo "<a href='anularCompra.php' class='btn btn-danger  col-md-4'>Anular Compra</a>";
-		echo "<a href='confirmar.php' class='btn btn-success col-md-4'>Confirmar Pedido</a>";
+		echo "<a href='confirmarPedido.php' class='btn btn-success col-md-4'>Confirmar Pedido</a>";
+	}else{
+		echo "<h1 class='display-1'>Tu cesta esta vacia.</h1>
+					<br>
+					<a href='articulos.php' class='btn btn-outline-dark btn-block'>Comprar</a>";
+	}
 }
  ?>
