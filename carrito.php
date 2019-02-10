@@ -17,6 +17,9 @@
 			
 			if ($_SESSION["Tipo"] != "Invitado" && $_SESSION["Tipo"] != "admin") {
 				echo "<h1 class='display-1'>Tu cesta esta vacia.</h1>";
+				// Mostrar el contenido del carro
+				// ----------------------------------------
+
 				/*if (isset($_SESSION["contador"])){
 					echo "<pre>";
 					print_r($_GET);

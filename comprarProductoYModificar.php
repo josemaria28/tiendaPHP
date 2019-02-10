@@ -52,6 +52,9 @@
 			}else{
 				// Comprar Producto
 				if (isset($_GET["comprar"])) {
+					if (!isset($_SESSION["cesta"])) {
+						$_SESSION["cesta"] = "nada";
+				}
 					
 					/*echo "<pre>";
 					print_r($_GET);
