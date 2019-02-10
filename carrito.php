@@ -16,23 +16,19 @@
 			sectionInicio();
 			
 			if ($_SESSION["Tipo"] != "Invitado" && $_SESSION["Tipo"] != "admin") {
-				echo "<h1 class='display-1'>Tu cesta esta vacia.</h1>";
+				
 				// Mostrar el contenido del carro
 				// ----------------------------------------
 
-				/*if (isset($_SESSION["contador"])){
-					echo "<pre>";
-					print_r($_GET);
-					echo "</pre>";
-					echo "<pre>";
-					print_r($_SESSION["contador"]);
-					echo "</pre>";
+				if (isset($_SESSION["contador"])){
 					if ($_SESSION["contador"]>0)
-						mostrarCarro();
+						mostrar();
 				}
 				else{
-					echo "<h1 class='display-1'>Cesta vacía...</h1><a href='articulos.php' class='btn btn-outline-dark btn-block'>Volver</a>";
-				}*/
+					echo "<h1 class='display-1'>Tu cesta esta vacia.</h1>
+					<br>
+					<a href='articulos.php' class='btn btn-outline-dark btn-block'>Comprar</a>";
+				}
 			}elseif ($_SESSION["Tipo"] == "admin") {
 				header('Location: index.php');
 			}else{

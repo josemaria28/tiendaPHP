@@ -71,8 +71,8 @@
 
 		foreach ($_SESSION["producto"] as $indice=>$valor){
 			$cadena= "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
-			$cadena.="</td><td>".$_SESSION["precio"][$indice]."</td><td>";
-			$cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."</td>";
+			$cadena.="</td><td>".$_SESSION["precio"][$indice]."€</td><td>";
+			$cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."€</td>";
 			$cadena.="<td align=center><a href=comprarProductoYModificar.php?borrar=".$valor."><img src='imagenes/papelera.png' heigth='30' width='20'></a></td></tr>";
 			echo $cadena;
 			$suma=$suma+$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice];
@@ -80,17 +80,13 @@
 		echo"<tfoot>
 		    <tr>
 		      <td colspan=3 align='center'>Total :</td>
-		      <td>".$suma."</td>
+		      <td>".$suma."€</td>
 		    </tr>
 		  </tfoot>
 		</table>";
 
-		echo "<table id='enlaces'align='center'><tr><td>";
-		echo "<a href='articulos.php' class='btn btn-primary'>Seguir Comprando</a>";
-		echo "</td><td>";
-		echo "<a href='anularCompra.php' class='btn btn-danger'>Anular Compra</a>";
-		echo "</td><td>";
-		echo "<a href='confirmar.php' class='btn btn-success'>Confirmar Pedido</a>";
-		echo "</td></tr></table>";
+		echo "<a href='articulos.php' class='btn btn-primary col-md-4'>Seguir Comprando</a>";
+		echo "<a href='anularCompra.php' class='btn btn-danger  col-md-4'>Anular Compra</a>";
+		echo "<a href='confirmar.php' class='btn btn-success col-md-4'>Confirmar Pedido</a>";
 }
  ?>

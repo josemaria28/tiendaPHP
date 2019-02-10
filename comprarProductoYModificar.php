@@ -51,20 +51,20 @@
 				echo "</form>";
 			}else{
 				// Comprar Producto
-				if (isset($_GET["comprar"])) {
+				/*if (isset($_GET["comprar"])) {
 					if (!isset($_SESSION["cesta"])) {
 						$_SESSION["cesta"] = "nada";
-				}
+				}*/
 					
-					/*echo "<pre>";
+					echo "<pre>";
 					print_r($_GET);
 					echo "</pre>";
 					echo "<pre><hr>";
 					print_r($_SESSION);
-					echo "</pre>";*/
+					echo "</pre>";
 
 
-					/*if (!isset($_GET['borrar'])){
+					if (!isset($_GET['borrar'])){
 						if (isset($_SESSION['producto'])){
 							//no es el primer producto en la cesta
 							//Compruebo si el producto estaba ya en la cesta
@@ -97,7 +97,7 @@
 						mostrar();
 					}else{
 						echo "Cesta vacía...<a href=articulos.php>Volver</a>";
-					}*/
+					}
 				}
 			}
 

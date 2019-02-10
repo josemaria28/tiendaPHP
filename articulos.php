@@ -8,9 +8,7 @@ include("funciones.php");
 headi();
 menu();
 
-echo "<section class='container'>
-	<article class='row'>
-	<div class='col-md-12'>";
+sectionInicio();
 
 $conexion = conectar("localhost","root","","bd_hardware");
 $sql = "SELECT cod,nombre,pvp,stock,foto,descripcion FROM producto ORDER BY nombre";
