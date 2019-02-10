@@ -31,12 +31,7 @@
 				$sumaPVP += $fila["PVP"];
 			}
 
-			echo"<tfoot>
-		    <tr>
-		      <td colspan=2 align='center'>Total :</td>
-		      <td>".$sumaPVP."€</td>
-		    </tr>
-		  </tfoot></table>";
+			echo"</table>";
 
 			sectionFin();
 			
