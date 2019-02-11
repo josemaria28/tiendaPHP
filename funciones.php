@@ -68,13 +68,13 @@
 		$cabecera.= '<tr><th>Articulo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
 		echo $cabecera;
 		$suma=0;
-
+		// echo $_SESSION["contador"];
 		foreach ($_SESSION["producto"] as $indice=>$valor){
 			// echo $valor;
 			$cadena= "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
 			$cadena.="</td><td>".$_SESSION["precio"][$indice]."€</td><td>";
 			$cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."€</td>";
-			$cadena.="<td align=center><a href=comprarProductoYModificar.php?borrar=".$valor."><img src='imagenes/papelera.png' heigth='30' width='20'></a></td></tr>";
+			$cadena.="<td align=center><a href=borrarProductoCestaCarrito.php?borrar=".$valor."><img src='imagenes/papelera.png' heigth='30' width='20'></a></td></tr>";
 			echo $cadena;
 			$suma=$suma+$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice];
 		}

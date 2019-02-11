@@ -2,8 +2,8 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2019 a las 16:26:16
+-- Servidor: localhost
+-- Tiempo de generación: 11-02-2019 a las 14:10:50
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.0.32
 
@@ -21,10 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_hardware`
 --
-
-DROP DATABASE IF EXISTS bd_hardware;
-CREATE DATABASE bd_hardware;
-USE bd_hardware;
 
 -- --------------------------------------------------------
 
@@ -79,17 +75,18 @@ INSERT INTO `familia` (`COD`, `NOMBRE`) VALUES
 CREATE TABLE `lineas` (
   `Num_Pedido` int(4) NOT NULL,
   `Num_linea` int(6) NOT NULL,
-  `Producto` varchar(12) NOT NULL
+  `Producto` varchar(12) NOT NULL,
+  `Cantidad` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `lineas`
 --
 
-INSERT INTO `lineas` (`Num_Pedido`, `Num_linea`, `Producto`) VALUES
-(1, 1, 'AMD-1900X'),
-(2, 3, 'i7-8700K'),
-(4, 22, 'i7-8700K');
+INSERT INTO `lineas` (`Num_Pedido`, `Num_linea`, `Producto`, `Cantidad`) VALUES
+(1, 1, 'AMD-1900X', 0),
+(2, 3, 'i7-8700K', 0),
+(4, 22, 'i7-8700K', 0);
 
 -- --------------------------------------------------------
 
@@ -162,9 +159,9 @@ ALTER TABLE `familia`
 -- Indices de la tabla `lineas`
 --
 ALTER TABLE `lineas`
-  ADD PRIMARY KEY (`Num_Pedido`),
-  ADD UNIQUE KEY `U_linea` (`Num_linea`),
-  ADD KEY `FK_PRODUCTO` (`Producto`);
+  ADD PRIMARY KEY (`Num_Pedido`,`Num_linea`),
+  ADD KEY `Producto` (`Producto`),
+  ADD KEY `Num_Pedido` (`Num_Pedido`);
 
 --
 -- Indices de la tabla `pedidos`
@@ -182,22 +179,6 @@ ALTER TABLE `producto`
   ADD KEY `FK_NUMERO_Familia` (`Familia`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `lineas`
---
-ALTER TABLE `lineas`
-  MODIFY `Num_linea` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `Num_Pedido` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- Restricciones para tablas volcadas
 --
 
@@ -205,20 +186,20 @@ ALTER TABLE `pedidos`
 -- Filtros para la tabla `lineas`
 --
 ALTER TABLE `lineas`
-  ADD CONSTRAINT `FK_NUMERO_PEDIDO` FOREIGN KEY (`Num_Pedido`) REFERENCES `pedidos` (`Num_Pedido`),
-  ADD CONSTRAINT `FK_PRODUCTO` FOREIGN KEY (`Producto`) REFERENCES `producto` (`COD`);
+  ADD CONSTRAINT `lineas_ibfk_1` FOREIGN KEY (`Num_Pedido`) REFERENCES `pedidos` (`Num_Pedido`),
+  ADD CONSTRAINT `lineas_ibfk_2` FOREIGN KEY (`Producto`) REFERENCES `producto` (`COD`);
 
 --
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `FK_DNI` FOREIGN KEY (`DNI`) REFERENCES `clientes` (`DNI`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`DNI`) REFERENCES `clientes` (`DNI`);
 
 --
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `FK_NUMERO_Familia` FOREIGN KEY (`Familia`) REFERENCES `familia` (`COD`);
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`Familia`) REFERENCES `familia` (`COD`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

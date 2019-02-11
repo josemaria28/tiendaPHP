@@ -34,7 +34,11 @@
 			}else{
 				echo "<h1 class='display-1'>Debe registrarse para poder comprar. <br> ¡Gracias!</h1>";
 			}
-
+			if (empty($_SESSION["producto"])) {
+				echo "<h1 class='display-1'>Tu cesta esta vacia.</h1>
+					<br>
+					<a href='articulos.php' class='btn btn-outline-dark btn-block'>Comprar</a>";
+			}
 			sectionFin();
 			
 			
