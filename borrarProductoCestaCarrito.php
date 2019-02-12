@@ -10,9 +10,6 @@ unset($_SESSION["unidades"][$borrarindice]);
 unset($_SESSION["precio"][$borrarindice]);
 $_SESSION["contador"]--;
 
-// print_r($borrarindice);
-
-// print_r($_SESSION["producto"]);
 
 header('Location: carrito.php');
  ?>

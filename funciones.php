@@ -35,9 +35,6 @@
 		</ul>	
 		</nav>
 		";
-		// <li class='nav-item col-md-2'>
-		// <a class='nav-link' href='carro.php'>Carro</a>
-		// </li>
 		
 	}
 	// Seccion/Contenido
@@ -68,7 +65,7 @@
 		$cabecera.= '<tr><th>Articulo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
 		echo $cabecera;
 		$suma=0;
-		// echo $_SESSION["contador"];
+		
 		foreach ($_SESSION["producto"] as $indice=>$valor){
 			// echo $valor;
 			$cadena= "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];

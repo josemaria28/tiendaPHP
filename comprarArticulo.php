@@ -23,7 +23,7 @@
 
 				$conexion = conectar("localhost","root","","bd_hardware");
 				$sql = "UPDATE producto SET Descripcion='".$_POST["descripcion"]."',PVP='".$_POST["precio"]."',Stock='".$_POST["stock"]."',foto='".$destino."' WHERE COD='".$_POST["cod"]."'";
-				$consultar = $conexion -> query($sql);
+				$conexion -> query($sql);
 			}
 
 			sectionFin();

@@ -48,16 +48,6 @@
 			}else{
 				// Comprar Producto
 				if (isset($_GET["comprar"])) {
-					
-					/*echo "<pre>";
-					print_r($_GET);
-					echo "</pre>";
-					echo "<pre><hr>";
-					print_r($_SESSION);
-					echo "</pre>";
-					echo "<pre>";
-					print_r($_SESSION['producto']);
-					echo "</pre>";*/
 
 					if (!isset($_GET['borrar'])){
 						if (isset($_SESSION['producto'])){
