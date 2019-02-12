@@ -13,6 +13,7 @@
 	// Insertar
 	$conexion = conectar("localhost","root","","bd_hardware");
 	
+	
 
 	foreach ($_SESSION["producto"] as $indice=>$valor){
 		echo $_SESSION["producto"][$indice]."<br>";
