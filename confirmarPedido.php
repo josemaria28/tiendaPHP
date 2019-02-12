@@ -28,24 +28,25 @@
 	echo $sqlPedido;
 	//$conexion -> query($sqlPedido);
 	// Insertamos todos las lineas
-	foreach ($_SESSION["producto"] as $value) {
+	foreach ($_SESSION["producto"] as $indice => $value) {
 		$codArticulo = "SELECT cod FROM producto WHERE producto.nombre = '".$value."'";
 		$sqlCodArticulo = $conexion -> query($codArticulo);
 		$codArt = $sqlCodArticulo->fetch_assoc();
 		echo "<hr>";
 		echo $value." - - - ".$codArt["cod"];
 		echo "<hr>";
-		$sqlLinea = "INSERT INTO lineas(Num_Pedido, Num_linea, Producto, Cantidad) VALUES ()";
+		$sqlLinea = "INSERT INTO lineas(Num_Pedido, Num_linea, Producto, Cantidad) VALUES (Num_Pedido, ".$_SESSION["unidades"][$indice].", ".$codArt["cod"].",".$_SESSION["unidades"][$indice].")";
+		echo $sqlLinea."<br>";
 	}
 	$sqlLinea = "";
 	//$conexion -> query($sqlLinea);
 	
 
-	/*foreach ($_SESSION["producto"] as $indice=>$valor){
+	foreach ($_SESSION["producto"] as $indice=>$valor){
 		echo $_SESSION["producto"][$indice]."<br>";
 		echo $_SESSION["precio"][$indice]."<br>";
 		echo $_SESSION["unidades"][$indice]."<br>";
-	}*/
+	}
 
 
 
