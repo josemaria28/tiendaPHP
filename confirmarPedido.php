@@ -41,11 +41,11 @@
 	//$conexion -> query($sqlLinea);
 	
 
-	foreach ($_SESSION["producto"] as $indice=>$valor){
+	/*foreach ($_SESSION["producto"] as $indice=>$valor){
 		echo $_SESSION["producto"][$indice]."<br>";
 		echo $_SESSION["precio"][$indice]."<br>";
 		echo $_SESSION["unidades"][$indice]."<br>";
-	}
+	}*/
 
 
 
