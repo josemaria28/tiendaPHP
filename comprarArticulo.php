@@ -21,7 +21,7 @@
 				$destino = "imagenes/".$foto;
 				copy($ruta, $destino); 
 
-				$conexion = conectar("localhost","root","","bd_hardware");
+				$conexion = conectar("localhost","root","","bdhardware");
 				$sql = "UPDATE producto SET Descripcion='".$_POST["descripcion"]."',PVP='".$_POST["precio"]."',Stock='".$_POST["stock"]."',foto='".$destino."' WHERE COD='".$_POST["cod"]."'";
 				$conexion -> query($sql);
 			}

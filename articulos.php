@@ -10,7 +10,7 @@ menu();
 
 sectionInicio();
 
-$conexion = conectar("localhost","root","","bd_hardware");
+$conexion = conectar("localhost","root","","bdhardware");
 $sql = "SELECT cod,nombre,pvp,stock,foto,descripcion FROM producto ORDER BY nombre";
 formatearTablaUTF($conexion);
 $consultar = $conexion -> query($sql);

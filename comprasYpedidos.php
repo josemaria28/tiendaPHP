@@ -16,7 +16,7 @@
 			sectionInicio();
 			echo "<h1 class='display-1'>Productos Pedidos.</h1><br>";
 
-			$conexion = conectar("localhost","root","","bd_hardware");
+			$conexion = conectar("localhost","root","","bdhardware");
 			$sql = "SELECT producto.COD, producto.nombre_corto, producto.PVP from clientes INNER JOIN pedidos on pedidos.DNI=clientes.DNI INNER JOIN lineas ON pedidos.Num_Pedido=lineas.Num_Pedido INNER JOIN producto ON producto.COD=lineas.Producto WHERE clientes.nombre='".$_SESSION["Usuario"]."'";
 			formatearTablaUTF($conexion);
 			$consultar = $conexion -> query($sql);

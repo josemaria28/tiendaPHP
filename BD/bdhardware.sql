@@ -2,8 +2,8 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 11-02-2019 a las 14:10:50
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-02-2019 a las 18:12:25
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.0.32
 
@@ -19,12 +19,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_hardware`
+-- Base de datos: `bdhardware`
 --
-
-drop database if exists bd_hardware;
-create database bd_hardware;
-use bd_hardware;
 
 -- --------------------------------------------------------
 
@@ -88,6 +84,7 @@ CREATE TABLE `lineas` (
 --
 
 INSERT INTO `lineas` (`Num_Pedido`, `Num_linea`, `Producto`, `Cantidad`) VALUES
+(0, 1, 'AMD-1900X', 1),
 (1, 1, 'AMD-1900X', 0),
 (2, 3, 'i7-8700K', 0),
 (4, 22, 'i7-8700K', 0);
@@ -100,7 +97,7 @@ INSERT INTO `lineas` (`Num_Pedido`, `Num_linea`, `Producto`, `Cantidad`) VALUES
 
 CREATE TABLE `pedidos` (
   `Num_Pedido` int(4) NOT NULL,
-  `DNI` varchar(9) DEFAULT NULL,
+  `DNI` varchar(9) NOT NULL,
   `Fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Total_pedido` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -110,9 +107,7 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`Num_Pedido`, `DNI`, `Fecha`, `Total_pedido`) VALUES
-(1, 'd1', '2019-01-16 19:46:57', 1),
-(2, 'd4', '2019-01-16 19:47:22', 1),
-(4, 'd3', '2019-01-28 23:00:00', 4);
+(1, 'd3', '2019-02-13 17:10:21', 440);
 
 -- --------------------------------------------------------
 
@@ -151,7 +146,8 @@ INSERT INTO `producto` (`COD`, `Nombre`, `nombre_corto`, `Descripcion`, `PVP`, `
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`DNI`);
+  ADD PRIMARY KEY (`DNI`),
+  ADD UNIQUE KEY `Usuario` (`Usuario`);
 
 --
 -- Indices de la tabla `familia`
@@ -172,7 +168,7 @@ ALTER TABLE `lineas`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`Num_Pedido`),
-  ADD UNIQUE KEY `DNI` (`DNI`);
+  ADD KEY `FK_DNI` (`DNI`);
 
 --
 -- Indices de la tabla `producto`
@@ -183,6 +179,16 @@ ALTER TABLE `producto`
   ADD KEY `FK_NUMERO_Familia` (`Familia`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `Num_Pedido` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -190,14 +196,13 @@ ALTER TABLE `producto`
 -- Filtros para la tabla `lineas`
 --
 ALTER TABLE `lineas`
-  ADD CONSTRAINT `lineas_ibfk_1` FOREIGN KEY (`Num_Pedido`) REFERENCES `pedidos` (`Num_Pedido`),
   ADD CONSTRAINT `lineas_ibfk_2` FOREIGN KEY (`Producto`) REFERENCES `producto` (`COD`);
 
 --
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`DNI`) REFERENCES `clientes` (`DNI`);
+  ADD CONSTRAINT `FK_DNI` FOREIGN KEY (`DNI`) REFERENCES `clientes` (`DNI`);
 
 --
 -- Filtros para la tabla `producto`

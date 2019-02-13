@@ -16,37 +16,36 @@
 	echo "Total Precio : ".$totaPrecio;
 
 	// Insertar
-	$conexion = conectar("localhost","root","","bd_hardware");
+	$conexion = conectar("localhost","root","","bdhardware");
 	// Buscamos el DNI
-	$sqlDNI = "SELECT clientes.dni FROM pedidos INNER JOIN clientes ON pedidos.DNI=clientes.DNI WHERE clientes.Usuario = '".$_SESSION["Usuario"]."'";
+	$sqlDNI = "SELECT dni FROM clientes WHERE clientes.Usuario =  '".$_SESSION["Usuario"]."'";
 
 	$dniUsuario = $conexion -> query($sqlDNI);
 	$dni = $dniUsuario->fetch_assoc();
-	echo " - ".$dni["dni"]." - <br>";
+	echo $sqlDNI." - ".$dni["dni"]." - <br>";
+
 	// Insertamos Pedido
 	$sqlPedido = "INSERT INTO pedidos(DNI, Fecha, Total_pedido) VALUES ('".$dni["dni"]."',CURRENT_TIMESTAMP,".$totaPrecio.")";
 	echo $sqlPedido;
-	//$conexion -> query($sqlPedido);
+	$conexion -> query($sqlPedido);
+
 	// Insertamos todos las lineas
 	foreach ($_SESSION["producto"] as $indice => $value) {
 		$codArticulo = "SELECT cod FROM producto WHERE producto.nombre = '".$value."'";
 		$sqlCodArticulo = $conexion -> query($codArticulo);
 		$codArt = $sqlCodArticulo->fetch_assoc();
-		echo "<hr>";
-		echo $value." - - - ".$codArt["cod"];
-		echo "<hr>";
-		$sqlLinea = "INSERT INTO lineas(Num_Pedido, Num_linea, Producto, Cantidad) VALUES (Num_Pedido, ".$_SESSION["unidades"][$indice].", ".$codArt["cod"].",".$_SESSION["unidades"][$indice].")";
+
+		$sqlLinea = "INSERT INTO lineas(Num_linea, Producto, Cantidad) VALUES (".$indice.", '".$codArt["cod"]."',".$_SESSION["unidades"][$indice].")";
 		echo $sqlLinea."<br>";
+		$conexion -> query($sqlLinea);
 	}
-	$sqlLinea = "";
-	//$conexion -> query($sqlLinea);
 	
 
-	foreach ($_SESSION["producto"] as $indice=>$valor){
+	/*foreach ($_SESSION["producto"] as $indice=>$valor){
 		echo $_SESSION["producto"][$indice]."<br>";
 		echo $_SESSION["precio"][$indice]."<br>";
 		echo $_SESSION["unidades"][$indice]."<br>";
-	}
+	}*/
 
 
 

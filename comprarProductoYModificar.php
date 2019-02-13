@@ -14,7 +14,7 @@
 			<body>";
 			menu();
 			sectionInicio();
-			$conexion = conectar("localhost","root","","bd_hardware");
+			$conexion = conectar("localhost","root","","bdhardware");
 
 			// Modificar Imagen
 			if (isset($_GET["modificar"])) {

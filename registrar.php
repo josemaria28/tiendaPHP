@@ -21,7 +21,7 @@ $usuario = $_POST["rUsuario"];
 $contraseña = $_POST["rPassword"];
 
 if ($dni != "" && $nombre != "" && $direccion != "" && $usuario != "" && $contraseña != "") {
-	$conexion = conectar("localhost","root","","bd_hardware");
+	$conexion = conectar("localhost","root","","bdhardware");
 	$sql = "INSERT INTO clientes(DNI, Nombre, Direccion, usuario, Password, Tipo) VALUES ('".$dni."','".$nombre."','".$direccion."','".$usuario."','".$contraseña."','usuario')";
 	formatearTablaUTF($conexion);
 	$consultar = $conexion -> query($sql);

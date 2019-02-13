@@ -14,7 +14,7 @@ include("funciones.php");
 		<p class='display-4'><mark>Registrese para poder comprar.
 		¡Gracias!</mark></p>";
 	if ($usuario != "" && $contraseña != "") {
-		$conexion = conectar("localhost","root","","bd_hardware");
+		$conexion = conectar("localhost","root","","bdhardware");
 		$sql = "SELECT usuario, password, tipo FROM clientes WHERE usuario='".$usuario."' and password ='".$contraseña."'";
 		$consultar = $conexion -> query($sql);
 		$fila = $consultar->fetch_assoc();

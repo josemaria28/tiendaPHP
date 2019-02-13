@@ -14,7 +14,7 @@ echo "<section class='container'>
 
 //echo $_SESSION["Usuario"];
 
-	$conexion = conectar("localhost","root","","bd_hardware");
+	$conexion = conectar("localhost","root","","bdhardware");
 	$sql = "SELECT nombre, direccion, usuario, password FROM clientes WHERE usuario='".$_SESSION["Usuario"]."'";
 	$consultar = $conexion -> query($sql);
 	echo "<form action='modificarUsuario.php' method='POST'>";

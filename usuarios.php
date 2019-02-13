@@ -10,7 +10,7 @@ include("funciones.php");
 	<article class='row'>
 	<div class='col-md-12'>";
 	
-	$conexion = conectar("localhost","root","","bd_hardware");
+	$conexion = conectar("localhost","root","","bdhardware");
 	$sql = "SELECT dni,usuario, nombre, tipo, direccion FROM clientes WHERE tipo='usuario'";
 	formatearTablaUTF($conexion);
 	$consultar = $conexion -> query($sql);

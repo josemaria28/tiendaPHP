@@ -15,20 +15,12 @@
 			menu();
 			sectionInicio();
 
-			// echo "<pre>";
-			// print_r($_GET);
-			// echo "</pre><hr>";
-
-			// echo "<pre>";
-			// print_r($_SESSION);
-			// echo "</pre>";
-
 			$foto = $_FILES["foto"]["name"];
 			$ruta = $_FILES["foto"]["tmp_name"];
 			$destino = "imagenes/".$foto;
 			copy($ruta, $destino); 
 
-			$conexion = conectar("localhost","root","","bd_hardware");
+			$conexion = conectar("localhost","root","","bdhardware");
 			$sql = "UPDATE producto SET Descripcion='".$_GET["descripcion"]."',PVP='".$_GET["precio"]."',Stock='".$_GET["stock"]."',foto='".$destino."' WHERE COD='".$_GET["cod"]."'";
 			$consultar = $conexion -> query($sql);
 			
