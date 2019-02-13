@@ -4,11 +4,11 @@
 	session_start();
 	include("funciones.php");
 
-	echo "<pre>";
+	/*echo "<pre>";
 	print_r($_SESSION);
-	/*print_r($_SESSION["precio"]);
-	print_r($_SESSION["unidades"]);*/
-	echo "</pre>";
+	print_r($_SESSION["precio"]);
+	print_r($_SESSION["unidades"]);
+	echo "</pre>";*/
 	$totaPrecio = 0;
 	foreach ($_SESSION["precio"] as $value) {
 		$totaPrecio += $value; 
@@ -29,13 +29,21 @@
 	echo $sqlPedido;
 	$conexion -> query($sqlPedido);
 
+	// Numero Pedido
+	$sqlNPedido = "SELECT MAX(Num_Pedido) AS nPedido FROM pedidos";
+	$rNPedido = $conexion -> query($sqlNPedido);
+	$pedido = $rNPedido->fetch_assoc();
+
+	echo $pedido["nPedido"];
+
+
 	// Insertamos todos las lineas
 	foreach ($_SESSION["producto"] as $indice => $value) {
 		$codArticulo = "SELECT cod FROM producto WHERE producto.nombre = '".$value."'";
 		$sqlCodArticulo = $conexion -> query($codArticulo);
 		$codArt = $sqlCodArticulo->fetch_assoc();
 
-		$sqlLinea = "INSERT INTO lineas(Num_linea, Producto, Cantidad) VALUES (".$indice.", '".$codArt["cod"]."',".$_SESSION["unidades"][$indice].")";
+		$sqlLinea = "INSERT INTO lineas(Num_Pedido, Num_linea, Producto, Cantidad) VALUES (".$pedido["nPedido"].",".$indice.", '".$codArt["cod"]."',".$_SESSION["unidades"][$indice].")";
 		echo $sqlLinea."<br>";
 		$conexion -> query($sqlLinea);
 	}
@@ -49,5 +57,6 @@
 
 
 
-	// header('Location: articulos.php');
+	header('Location: articulos.php');
+	header('Location: anularCompra.php');
  ?>
