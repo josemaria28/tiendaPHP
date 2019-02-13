@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-02-2019 a las 18:12:25
+-- Tiempo de generación: 13-02-2019 a las 21:21:26
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.0.32
 
@@ -21,7 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bdhardware`
 --
-
+drop database if exists bdhardware;
+create database bdhardware;
+use bdhardware;
 -- --------------------------------------------------------
 
 --
@@ -84,10 +86,26 @@ CREATE TABLE `lineas` (
 --
 
 INSERT INTO `lineas` (`Num_Pedido`, `Num_linea`, `Producto`, `Cantidad`) VALUES
-(0, 1, 'AMD-1900X', 1),
-(1, 1, 'AMD-1900X', 0),
-(2, 3, 'i7-8700K', 0),
-(4, 22, 'i7-8700K', 0);
+(22, 0, 'AMD-1900X', 1),
+(22, 1, 'G-B450M-DS3H', 1),
+(23, 0, 'AMD-1900X', 2),
+(23, 1, 'G-B450M-DS3H', 1),
+(23, 2, 'LK-K120', 2),
+(24, 0, 'AMD-1900X', 2),
+(24, 1, 'G-B450M-DS3H', 1),
+(24, 2, 'LK-K120', 2),
+(25, 0, 'G-B450M-DS3H', 2),
+(25, 1, 'i7-8700K', 1),
+(25, 2, 'K-A400', 1),
+(25, 3, 'LW-M570', 1),
+(25, 4, 'LK-K120', 1),
+(26, 0, 'G-B450M-DS3H', 1),
+(27, 0, 'G-B450M-DS3H', 2),
+(27, 1, 'K-A400', 1),
+(28, 0, 'AMD-1900X', 1),
+(28, 1, 'LW-M570', 2),
+(28, 2, 'K-A400', 1),
+(28, 3, 'LK-K120', 2);
 
 -- --------------------------------------------------------
 
@@ -107,7 +125,13 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`Num_Pedido`, `DNI`, `Fecha`, `Total_pedido`) VALUES
-(1, 'd3', '2019-02-13 17:10:21', 440);
+(22, 'd2', '2019-02-13 18:39:42', 394),
+(23, 'd2', '2019-02-13 18:40:17', 415),
+(24, 'd2', '2019-02-13 18:42:18', 415),
+(25, 'd2', '2019-02-13 18:43:37', 218),
+(26, 'd4', '2019-02-13 18:44:42', 70),
+(27, 'd4', '2019-02-13 20:14:06', 111),
+(28, 'd3', '2019-02-13 20:14:53', 418);
 
 -- --------------------------------------------------------
 
@@ -186,7 +210,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `Num_Pedido` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Num_Pedido` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Restricciones para tablas volcadas
